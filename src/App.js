@@ -3,8 +3,9 @@ import React, { Component } from 'react';
 class App extends Component {
   constructor(Props) {
     super(Props);
+
     this.state = {
-      notes: []
+      notes: localStorage.getItem('notes').split(',')
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -14,6 +15,7 @@ class App extends Component {
     event.preventDefault();
     const form = new FormData(event.target);
     this.setState(function(prevState, props) {
+      localStorage.setItem('notes', [...prevState.notes, form.get('note')]);
       return {
         notes: [...prevState.notes, form.get('note')]
       };
