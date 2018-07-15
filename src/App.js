@@ -1,19 +1,38 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 
 class App extends Component {
+  constructor(Props) {
+    super(Props);
+    this.state = {
+      notes: []
+    };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    const form = new FormData(event.target);
+    this.setState(function(prevState, props) {
+      return {
+        notes: [...prevState.notes, form.get('note')]
+      };
+    });
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <main>
+        <form className="input" onSubmit={this.handleSubmit}>
+          <textarea className="input__field" name="note">
+
+          </textarea>
+          <input type="submit" value="Make Note" />
+        </form>
+        <div className="notes">
+          Notes will output here
+        </div>
+      </main>
     );
   }
 }
