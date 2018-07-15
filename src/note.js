@@ -9,7 +9,7 @@ class Note extends Component {
         <div className="note__text">
           {this.props.text}
         </div>
-        <button className="note__remove">
+        <button className="note__remove" onClick={() => this.props.removeNote(this.props.text)}>
           Remove Note
         </button>
       </div>
