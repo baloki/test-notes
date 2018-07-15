@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Note from './note';
+import './input.css';
 
 class App extends Component {
   constructor(Props) {
@@ -31,7 +32,7 @@ class App extends Component {
           <textarea className="input__field" name="note">
 
           </textarea>
-          <input type="submit" value="Make Note" />
+          <input type="submit" value="Make Note" className="input__button" />
         </form>
         <div className="notes">
           {

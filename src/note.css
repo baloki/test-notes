@@ -1,0 +1,9 @@
+.note {
+  border-bottom: 1px solid #cccccc;
+  display: flex;
+  padding: 1rem;
+}
+
+.note__text {
+  width: 100%;
+}
