@@ -30,7 +30,15 @@ class App extends Component {
           <input type="submit" value="Make Note" />
         </form>
         <div className="notes">
-          Notes will output here
+          {
+            this.state.notes.map(
+              (note, iterator) => (
+              <div className="notes__item" key={`note-${iterator}`}>
+                {note}
+              </div>
+              )
+            )
+          }
         </div>
       </main>
     );
