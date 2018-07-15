@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Note from './note';
-import './input.css';
+import Input from './input';
 
 class App extends Component {
   constructor(Props) {
@@ -44,25 +44,18 @@ class App extends Component {
   render() {
     return (
       <main>
-        <form className="input" onSubmit={this.handleSubmit}>
-          <textarea className="input__field" name="note">
-
-          </textarea>
-          <input type="submit" value="Make Note" className="input__button" />
-        </form>
-        <div className="notes">
-          {
-            this.state.notes.map(
-              (note, iterator) => (
-                <Note
-                  text={note}
-                  key={`note-${iterator}`}
-                  removeNote={this.removeNote}
-                />
-              )
+        <Input handleSubmit={this.handleSubmit} />
+        {
+          this.state.notes.map(
+            (note, iterator) => (
+              <Note
+                text={note}
+                key={`note-${iterator}`}
+                removeNote={this.removeNote}
+              />
             )
-          }
-        </div>
+          )
+        }
       </main>
     );
   }
