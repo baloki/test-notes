@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Note from './note';
+
 class App extends Component {
   constructor(Props) {
     super(Props);
@@ -35,9 +37,7 @@ class App extends Component {
           {
             this.state.notes.map(
               (note, iterator) => (
-              <div className="notes__item" key={`note-${iterator}`}>
-                {note}
-              </div>
+                <Note text={note} key={`note-${iterator}`} />
               )
             )
           }
